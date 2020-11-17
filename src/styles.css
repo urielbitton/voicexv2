@@ -1,0 +1,2963 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: Alata, sans-serif;
+  background: var(--bg);
+} 
+
+:root {
+  --color: #682bff; 
+  --yellow: #f9bf0a;
+  --blue: #1294ff;
+  --red: #fc534d;
+  --bg: #f8f9fd; 
+  --bg2: #eff2f9;
+  --txt: #b2bbca;
+  --btnshadow: rgba(102,51,255,0.5);
+  --btn: #682bff;
+} 
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.spacer {
+  height: 50px;
+}
+.spacers {
+  height: 30px;
+}
+.spacerl {
+  height: 100px;
+} 
+.spacern {
+  height: 125px;
+}
+* {
+  box-sizing: border-box;
+  letter-spacing: 0.2px;
+}
+::selection {
+  background: var(--color);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+} 
+.hidescroll::-webkit-scrollbar {
+  display: none;
+} 
+::-webkit-scrollbar-track {
+  background: #eee; 
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color);
+  border-radius: 50px;
+}
+h1,h2,h3,h4,h5,h6,i,p,li,button,a,span,small,img,section,input,label {
+  position: relative;
+  margin: 0;
+}
+img {
+  object-fit: cover;
+  max-width: 100%;
+}
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background: var(--btn);
+  color: #fff;
+} 
+button:active {
+  transform: scale(0.975);
+}
+button:hover {
+  filter: brightness(110%);
+  box-shadow: 0px 10px 22px -8px var(--btnshadow);
+}
+button i {
+  margin-right: 10px;
+}
+input {
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+input, textarea, select {
+  outline: none;
+}
+input::placeholder {
+  color: #bbb;
+}
+hr {
+  border: none;
+}
+
+.purple { color: var(--color); }
+.blue { color: var(--blue); }
+.yellow { color: var(--yellow); }
+.red { color: var(--red); }
+.purplebg { background: var(--color); }
+.bluebg { background: var(--blue); }
+.yellowbg { background: var(--yellow); }
+.redbg { background: var(--red); }
+
+.appcontainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px auto 300px;
+  overflow-x: hidden;
+}
+.monthlyprog {
+  position: fixed;
+  top: 0;
+  height: 3px;
+  width: 0;
+  background: var(--color); 
+  transition: all 1.5s;
+  z-index: 999;
+  border-radius: 20px;
+} 
+.homecont {
+  position: relative;
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+}
+.innerhomecont {
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+}
+.innerhomecont::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar {
+  background: #fff;
+  position: relative;
+  padding: 30px;
+  border-radius: 0 20px 20px 0;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar .fa-stream {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  margin: auto;
+  color: #ccc;
+  transition: all 0.2s;
+  cursor: pointer;
+  z-index: 100;
+} 
+.sidebar .fa-stream:hover {
+  color: var(--color);
+}
+.logocont {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  display: flex;
+  align-items: center;
+} 
+.logo {
+  position: relative; 
+  top: 2px;
+  display: inline-block;
+  width: 7px; 
+  height: 30px;
+  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(199,177,255,1) 0%, rgba(104,43,255,1) 100%);
+  transform: rotate(30deg);
+  margin-right: 10px;
+}
+.logo::after {
+  position: absolute;
+  top: 4px;
+  content: '';
+  border-radius: 15px;
+  transform: translate(-10px, 0) rotate(120deg);
+  width: 7px;
+  height: 30px;
+  background: linear-gradient(180deg, rgba(199,177,255,1) 0%, rgba(104,43,255,1) 100%);
+}
+.logincont .logocont {
+  position: absolute;
+  top: 25px;
+  left: 50px;
+}
+.innersidebar {
+  position: relative;
+  height: 500px;
+}
+.innersidebar::-webkit-scrollbar {
+  display: none;
+} 
+.sidemenu h6 {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sidemenu a {
+  color: var(--txt);
+}
+.sidemenu h6:hover {
+  color: var(--color);
+}
+
+.sidemenu h6 i {
+  margin-right: 15px;
+  width: 20px;
+}
+.sidebar button {
+  box-shadow: 0px 13px 32px -8px var(--btnshadow);
+  padding: 15px 25px;
+}
+
+nav {
+  position: relative;
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+}
+.navhead {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.proficoncont {
+  cursor: pointer;
+}
+.proficoncont .proficon {
+  color: var(--txt);
+  margin-right: 5px;
+  padding: 2px 5px;
+}
+.proficoncont i {
+  color: var(--txt);
+}
+.innernav {
+  position: relative;
+  height: 95%;
+  overflow-y: scroll;
+}
+.innernav::-webkit-scrollbar {
+  display: none;
+}
+.navhead > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 20px;
+}
+.navhead > div:last-child:hover {
+  background: var(--bg2)
+}
+.navhead img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.navhead h6 {
+  font-size: 13px;
+  color: #555;
+  padding: 5px;
+}
+.navhead h6 i {
+  margin-left: 5px;
+}
+.navtools {
+  color: var(--txt);
+}
+.navtools i {
+  margin-right: 10px;
+  font-size: 17px; 
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.navtools i:hover {
+  color: var(--color);
+}
+nav .fa-stream {
+  border-radius: 5px;
+  color:#fff;
+  padding:5px;
+  background:var(--color); 
+  transition: all 0.4s;
+}
+nav .fa-stream:hover {
+  color: #fff;
+}
+.navinfo {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.navinfo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+.profcont {
+  position: relative;
+  text-align: center;
+}
+.profcont .imgcont {
+  position: relative;
+} 
+.profcont .imgcont > div {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background: var(--color);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 15px;
+  right: 0px;
+  color: #fff;
+  font-size: 12px;
+} 
+.profcont h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+} 
+.profcont h6 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #aaa;
+  margin: 5px auto;
+}
+.profcont small {
+  color: var(--color);
+  font-size: 11px;
+}
+.navreminders {
+  position: relative; 
+  overflow: hidden;
+  height: 260px;
+}
+.innernavreminders {
+  position: relative;
+  height: 500px;
+  overflow: scroll;
+}
+.navreminders h4 {
+  color: #777; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.navreminders h4 button {
+  padding: 7px 12px;
+  top: 1px;
+}
+.reminderbox {
+  position: relative;
+  background: #f9f9f9;
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.reminderbox > div {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: var(--color);
+  color: #fff;
+  font-size: 13px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.quickinvoicescont .reminderbox > div {
+  background: var(--red);
+}
+.quickinvoicescont h4 button {
+  background: var(--red);
+}
+.reminderbox > div i {
+  width: 40px;
+  left: 8.5px;
+  right: 0;
+  font-size: 16px;
+}
+.reminderbox > i {
+  color: #aaa;
+}
+.reminderbox h5 {
+  font-size: 13px;
+  color: #555; 
+  line-height: 1.2;
+  width: 180px;
+}
+.reminderbox h5 small {
+  display: block;
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 5px;
+}
+.reminderbox > i {
+  cursor: pointer;
+}
+
+.homepage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.pageheaders {
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pageheaders h2 {
+  margin-right: 30px;
+}
+.pageheaders h2 small {
+  display: block;
+  font-size: 15px;
+  color: #aaa;
+  font-weight: 500;
+}
+.pageheaders > div {
+  display: flex;
+  align-items: center;
+}
+.pageheaders button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  top: 3px;
+}
+.pageheaders h2 {
+  font-size: 24px;
+  color: #444;
+}
+.pageheaders label {
+  width: 310px;
+}
+.pageheaders label div {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 37px;
+  height: 37px;
+  color: #fff;
+  font-size: 14px; 
+  background: var(--color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pageheaders label div:hover {
+  filter: brightness(110%);
+}
+.pageheaders input { 
+  width: 100%;
+  top: 4px;
+  background: #f1f1f1; 
+  color: #777;
+  padding-left: 20px;
+} 
+.homegrid {
+  position: relative;
+  display: grid;
+  grid-gap: 20px;
+  width: 100%;  
+  grid-auto-flow: row dense;
+} 
+.dashsmallgrid {
+  position: relative;
+  width: 100%;
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+.rowgrid {
+  position: relative;
+  width: 100%;
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+.dashbox {
+  position: relative;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(158, 169, 187,0.1);
+  background: #fff;
+  overflow: hidden;
+}
+.dashbox h4 {
+  font-size: 18px; 
+  color: #555;
+  margin-bottom: 20px;
+}
+.dashbox > small {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dashbox > small:hover i {
+  left: 5px;
+}
+.dashbox > small:hover {
+  color: var(--color);
+}
+.dashbox > small i {
+  left: 1px;
+  top: 1.4px;
+  transition: all 0.3s;
+}
+.earningsbox {
+  grid-column: span 3;
+}
+.invstats {
+  grid-column: span 3;
+}
+
+.dashsmall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashsmall > small {
+  font-weight: 500;
+  top: 3px;
+}
+.dashsmall > small a {
+  color: #bbb;
+  transition: all 0.2s;
+}
+.dashsmall > small:hover a {
+  color: var(--color);
+}
+.dashsmall .icondiv {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.dashsmall .icondiv i {
+  color: #fff;
+  font-size: 23px;
+}
+.dashsmall h5 {
+  color: var(--txt);
+}
+.dashsmall h3 {
+  font-size: 30px;
+  color: #333;
+}
+
+.earningschart, .invoicechart {
+  position: relative;
+  height: 330px;
+}
+.progcircle {
+  width: 200px;
+  position: relative;
+  margin: auto;
+} 
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3;
+}
+.circle {
+  fill: none;
+  stroke-width: 3; 
+  stroke-linecap: round;
+  stroke: var(--red);
+  animation: progress 1s ease-out forwards;
+} 
+@keyframes progress { 0% { stroke-dasharray: 0 100; }}
+.percentage {
+  fill: #999;
+  font-family: inherit;
+  text-anchor: middle;
+  position: relative;
+  font-size: 13px; 
+  transition: all 1s;
+}
+.circlecont {
+  position: relative;
+  margin-bottom: 40px;
+}
+.progicondiv {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--red);
+  border-radius: 100%;
+  box-shadow: 0 1px 16px rgba(200, 217, 247, 0.5);
+}
+.progtubecont {
+  position: relative;
+  width: 90%;
+  margin: auto;
+}
+.progtubecont h5 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--red);
+}
+.progtube {
+  position: relative;
+  width: 100%;
+  background: #eee;
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.progfill {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background: var(--red);
+  border-radius: 20px;
+  transition: all 1s;
+}
+.prognumbers {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.updateitem {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.updatecolor {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.updateitem h6 {
+  font-size: 13px;
+  color: #555;
+  width: 215px;
+}
+.updateitem small {
+  font-size: 11px;
+  color: #aaa;
+}
+.updateitem i {
+  cursor: pointer;
+}
+.recentinvoices {
+  grid-column: span 4;
+} 
+.recentinvoices > small {
+  z-index: 100;
+}
+
+.addinvoicecont {
+  position: relative;
+  width: 930px;
+  padding: 30px;
+}
+.addinvoicecont form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+.addinvoicecont form label h6, .labelinput h6 {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--txt);
+  font-weight: 500;
+} 
+.addinvoicecont form label h6 i {
+  margin-right: 10px;
+}
+.addinvoicecont form label input, .addinvoicecont form label select, .labelinput input, .labelinput select {
+  width: 100%;
+  background: none;
+  border: 2px solid rgba(205, 213, 222,0.4);
+  padding: 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #555;
+}
+.react-datepicker-wrapper input {
+  cursor: pointer; 
+}
+.addinvoicecont form .react-datepicker-wrapper {
+  position: relative;
+  width: 100%;
+}
+.addinvoicecont h6.tabletitle {
+  margin-bottom: 20px;
+  text-transform: uppercase; 
+  color: var(--txt);
+  font-weight: 500;
+}
+.addinvoicecont table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.addinvoicecont table th {
+  font-size: 12px;
+  color: var(--txt);
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+.addinvoicecont table tr {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.addinvoicecont table td {
+  padding: 7px 0;
+  border-bottom: 5px solid var(--bg);
+}
+.addinvoicecont table td:last-child {
+  text-align: right;
+  padding-right: 15px;
+}
+.addinvoicecont table td i {
+  color: var(--txt);
+  padding: 5px;
+  cursor: pointer;
+}
+.addinvoicecont table td i:hover {
+  color: var(--color)
+}
+.addinvoicecont table input {
+  background: none;
+  color: #555;
+}
+.addinvoicecont table input[type="checkbox"] {
+  margin-left: 15px;
+}
+.addinvoicecont table input::placeholder {
+  color: #ddd;
+}
+.addinvoicecont table .smallinp {
+  width: 80px;
+}
+.addinvoicecont table .mediuminp {
+  width: 100px;
+}
+.addinvoicecont table span.mediuminp {
+  padding-left: 10px;
+  font-size: 13px;
+  color: #555;
+}  
+.addinvoicecont table button {
+  margin-top: 20px;
+}
+.addinvoicecont .invtotalcont {
+  display: flex; 
+  justify-content: space-between;
+}
+.oneinvoicepage .templateitemrow td {
+  background: #fff;
+  padding: 10px 0;
+}
+.oneinvoicepage .templateitemrow input {
+  font-weight: 600;
+  color: #777;
+}
+.addinvoicecont .templateitemrow {
+  background: none;
+  border-top: 10px solid var(--bg);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.oneinvoicepage table button {
+  margin-top: 10px;
+}
+.oneinvoicepage table td:last-child i {
+  opacity: 0;
+  color: #777;
+}
+.addinvoicecont .templateitemrow td {
+  border-bottom: 1px solid #eee;
+}
+.addinvoicecont .templateitemrow input {
+  color: #777;
+}
+.addinvoicecont .templateitemrow input::placeholder {
+  color: #ccc;
+}
+.addinvoicecont .generateditems input::placeholder {
+  color: #555;
+}
+.addinvoicecont .invnumberlabel input {
+  padding-right: 50px;
+}
+.addinvoicecont .react-datepicker-popper button {
+  margin: 0;
+}
+.addinvoicecont .invnumberlabel .gennum {
+  position: absolute;
+  top: 32px;
+  right: 5px;
+  padding: 10px;
+  background: var(--color);
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.addinvoicecont .invnumberlabel .gennum:hover {
+  filter: brightness(110%)
+}
+.addinvoicecont .MuiSlider-markLabel {
+  display: none;
+}
+.invtotalcont input {
+  margin-right: 15px;
+  width: 200px;
+  background: none;
+  border: 2px solid rgba(205, 213, 222,0.4);
+  padding: 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #555;
+}
+.invtotalcont button {
+  background: none;
+  border: 2px solid rgba(205, 213, 222,0.4);
+  color: var(--txt);
+  padding: 15px 20px;
+}
+.invtotalcont button:hover {
+  background: var(--color);
+  color: #fff;
+}
+.invtotalcont .addfavbtn {
+  border: none;
+  background: var(--color);
+  color: #fff;
+}
+.invtotalcont .addfavbtn i {
+  margin: 0;
+  left: 10px;
+  margin-right: 8px;
+}
+.invtotalcont .totalsdiv {
+  position: relative;
+  padding: 30px;
+  border-radius: 10px;
+  background: #f1f1f1;
+  border: 1px solid #eaeaea; 
+}
+.invtotalcont .totalsdiv small {
+  font-size: 11px;
+}
+.invtotalcont .totalsdiv h5 {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 500;
+  font-size: 13px;
+  width: 250px;
+}
+.invtotalcont .totalsdiv h5 span {
+  float: right;
+}
+.invtotalcont .totalsdiv hr {
+  height: 1px;
+  background: #ddd;
+}
+.invtotalcont .totalsdiv .bigtotal {
+  font-size: 15px;
+  color: #333;
+}
+.addinvoicecont .maincreateinv {
+  padding: 15px 30px;
+} 
+
+.invoicestablecont {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+}
+.invoicestablecont .flexrowcont {
+  position: relative;
+  box-shadow: 0 0px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  overflow: hidden; 
+  background: #fff;
+}
+.invoicestablecont .flexrowcont button {
+  padding: 8px 12px;
+}
+.invoicestablecont .pinicon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 100;
+}
+.invoicestablecont .pinicon:hover {
+  color: var(--color);
+}
+.flexrowpad {
+  position: relative;
+  padding: 20px 10px;
+}
+.invoicestablecont .flexrowhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.invoicestablecont .flexrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.invoicestablecont .flexrowhead h5 {
+  font-size: 13px;
+  color: #ccc;
+  font-weight: 500;
+} 
+.invoicestablecont .flexrowinfo {
+  position: relative;
+  opacity: 0;
+  height: 0px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.2s;
+  border-top: 1px solid var(--bg2);
+} 
+.invoicestablecont .flexrowinfo h5 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color:#ccc;
+}
+.invoicestablecont .flexrowinfo h6 span {
+  color: #aaa;
+  font-weight: 500;
+}
+.invoicestablecont .flexrowinfo .infoinvdetails {
+  display: flex;
+  justify-content: space-between;
+}
+.invoicestablecont .flexrowinfo .infoinvdetails > div {
+  margin: 0 40px;
+}
+.invoicestablecont .flexrowinfo h6 {
+  font-size: 14px;
+  color: #777;
+  display: block;
+  margin-bottom: 10px;
+}
+.invoicestablecont .invtotalinfodiv {
+  border-left: 1px solid var(--bg2);
+  width: 200px;
+  padding-left: 20px;
+}
+.invoicestablecont .invtotalinfodiv h3 {
+  font-size: 22px;
+  color: #444;
+  margin-bottom: 40px;
+}
+.flexinfoitems {
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+  width: 200px; 
+  height: 100px;
+  overflow-y: scroll;
+}
+.flexinfoitems::-webkit-scrollbar {
+  width: 5px;
+  opacity: 0.1;
+}
+.flexinfoitems li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #777;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.flexinfoitems li:nth-of-type(odd) {
+  background: #f5f5f5;
+}
+.flexinfoitems li span:first-child {
+  color: #333;
+}
+.flexinfoitems small {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
+  color: #aaa;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.flexinfoitems small:hover {
+  color: #111;
+}
+.flexinfoitems small i {
+  left: 2px;
+  top: 1px;
+}
+.homepage .invoicestablecont .flexrow > div:last-child, .homepage .invoicestablecont .flexrowhead > h5:last-child {
+  display: none;
+}
+.homepage .invoicestablecont .flexrowcont {
+  border: none;
+  box-shadow: none;
+}
+.homepage .invoicestablecont .flexrowcont:nth-child(odd) {
+  background: #fafafa;
+}
+.invoicestablecont .flexrow .smallflexrow {
+  max-width: 100px;
+}
+.invoicestablecont .flexrow > div:first-child, .invoicestablecont .flexrow > h5:first-child, .invoicestablecont .flexrowhead > h5:first-child {
+  max-width: 150px;
+}
+.invoicestablecont .flexrow > div, .invoicestablecont .flexrow > h5, .invoicestablecont .flexrowhead > h5 {
+  flex-basis: 25%;
+} 
+.invoicestablecont .flexrow > div {
+  font-size: 13px;
+  color: #707c92;
+}
+.invoicestablecont .flexrow div:last-child, .invoicestablecont .flexrowhead h5:last-child {
+  max-width: 90px; 
+}
+.invoicestablecont .flexrow .optsrow i {
+  font-size: 15px;
+  margin-right: 5px;
+  padding: 5px; 
+  cursor: pointer;
+}
+.invoicestablecont .flexrow .invstatuscolor > div {
+  position: relative;
+  top: -1px;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: #7ae600;
+  display: inline-block;
+  margin-right: 10px;
+} 
+.invoicestablecont .flexrow .invstatuscolor span {
+  font-weight: 500;
+  font-size: 13px;
+}
+.invoicestablecont .flexrow .optsrow i:hover {
+  color: var(--color);
+}
+.invoicestablecont .flexrow .optsrow input {
+  opacity: 0;
+  top: 1px;
+  margin-left: 10px;
+}
+.invoicestablecont .flexrow:hover .optsrow input {
+  opacity: 1;
+}
+.invoicestablecont .flexrow .optsrow input:checked {
+  opacity: 1;
+}
+.invoicestablecont .flexrow .datepicker input, .invoicestablecont .flexrowhead .datetitle {
+  width: 150px;
+  background: none;
+}
+.invoicestablecont .flexrow .datepicker input {
+  padding: 0;
+}
+.invoicestablecont .infoopts {
+  position: relative;
+  border-radius: 4px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.invoicestablecont .infoopts i {
+  left: 10px;
+  transition: all 0.3s;
+}
+.invoicestablecont .namebox {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: var(--red);
+  margin-right: 8px;
+  color: #fff;
+  cursor:  default;
+}
+.invoicestablecont select {
+  padding: 10px 20px;
+  border-radius: 5px; 
+  background: var(--color);
+  border: none;
+  color: #fff;
+  appearance:none;
+  text-align:center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align-last: center;
+}
+.editslidercont select {
+  background: #f5f5f5;
+  color: #333;
+}
+.invoicestablecont .footerinfo {
+  position: relative;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 15px;
+  color: #aaa;
+}
+.invoicestablecont .footerinfo small {
+  display: inline-block;
+  margin: auto 20px;
+}
+.invoicestablecont .footerinfo small span {
+  color: #333;
+}
+
+.editslidercont {
+  position: fixed;
+  width: 500px;
+  height: 100vh;
+  top: 0;
+  right: -550px;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0 0 30px 5px rgba(0,0,0,0.1);
+  padding: 30px;
+  transition: all 0.3s;
+}
+.editslidercont .fa-times {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  padding: 10px;
+  font-size: 32px;
+  color: #555;
+  cursor: pointer;
+}
+.editslidercont h2 {
+  margin-top: 30px;
+  text-align: center;
+  color: #555;
+} 
+.editslidercont form {
+  margin-top: 50px;
+}
+.editslidercont label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.editslidercont label h6 {
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+}
+.editslidercont label input {
+  border: 1px solid #eee;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+.editslidercont label select {
+  padding: 10px;
+  width: 190px;
+}
+.editslidercont button i {
+  margin-left: 10px;
+}
+.invoicespage .pageheaders label > div {
+  background: var(--red)
+}
+.estimatespage .pageheaders label > div {
+  background: var(--yellow)
+}
+.clientspage .pageheaders label > div {
+  background: var(--blue)
+}
+.invoicespage button {
+  background: var(--red);
+}
+.estimatespage button {
+  background: var(--yellow);
+}
+.clientspage button {
+  background: var(--blue);
+}
+.clientspage table td {
+  padding: 15px 0;
+}
+.emptymsg {
+  text-align: center;
+} 
+.emptymsg h5 {
+  font-size: 17px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.notifscont {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  z-index: 999;
+}
+.notifscont .notifs {
+  position: relative;
+  left: -40px;
+  opacity: 0;
+  padding: 15px 30px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  transition: all 0.4s;
+}
+.notifscont button {
+  background: #fff;
+  color: #333;
+  margin-left: 15px;
+}
+.notifscont .notifs i {
+  margin-right: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+.notifscont .notifs p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #eee;
+}
+
+.tabheaders {
+  display: flex; 
+  align-items: center;
+}
+ 
+.oneinvoicepage {
+  padding: 0 20px;
+}
+.oneinvoicepage .oneinvflex {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.invoicepiccont {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  top: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #f1f1f1;
+}
+.settingsaccount .invoicepiccont {
+  background: none;
+}
+.invoicepiccont img {
+  width: 100%;
+  height: 100%;
+}
+.editinvoicepiccont {
+  position: relative;
+  top: 25px;
+  color: #bbb;
+  font-weight: 500;
+}
+.invoicepiccont label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 100;
+}
+.invoicepiccont .uploadpiclogo {
+  display: none;
+}
+.settingsaccount .invoicepiccont {
+  top: auto;
+  margin-bottom: 20px;
+}
+.settingsaccount .invoicepiccont h6 {
+   text-transform: capitalize;
+   margin-bottom: 10px;
+}
+.invoicepiccont > div {
+  background: #eee;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+.invoicepiccont > div:hover {
+  filter: brightness(90%)
+}
+.invoicepiccont > div i {
+  font-size: 25px;
+  color: #aaa;
+}
+.invoicepiccont > div h4 {
+  font-size: 15px; 
+  color: #aaa;
+} 
+.oneinvoicepage h1, .oneclientpage h1 {
+  text-transform: uppercase;
+  color: var(--color); 
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.oneinvoicepage .clientinfodiv {
+  width: 250px;
+}
+.oneinvoicepage .clientinfodiv h5 {
+  color: var(--color);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.oneinvoicepage .invheaderinfo h6, .oneinvoicepage .clientinfodiv h6 {
+  color: #555;
+  font-size: 13px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.oneinvoicepage .invheaderinfo h4 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 5px;
+}
+.oneinvoicepage .clientinfodiv h6 span {
+  color: #777;
+  font-weight: 500;
+  float: right;
+}
+.oneinvoicepage .invoicetodiv h3 {
+  color: var(--color);
+  text-transform: uppercase;
+}
+.oneinvoicepage .invoicetodiv h2 {
+  color: #555;
+  margin: 10px 0;
+}
+.oneinvoicepage table {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+.oneinvoicepage table thead {
+  text-align: left;
+}
+.oneinvoicepage table thead th {
+  background: var(--color);
+}
+.oneinvoicepage table thead th:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.oneinvoicepage table thead th:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.oneinvoicepage table thead th h6 {
+  font-weight: 500;
+  color: #fff;
+  font-size: 13px;
+  padding: 20px 10px;
+}
+.oneinvoicepage table tbody tr:nth-child(even) {
+  background: #eee;
+}
+.oneinvoicepage table tbody td {
+  padding: 20px 10px;
+}
+.oneinvoicepage table tbody td i {
+  margin-right: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+  opacity: 0.2;
+}
+.oneinvoicepage table tbody td i:hover {
+  color: var(--color);
+}
+.oneinvoicepage table tbody tr:hover td i {
+  opacity: 1;
+}
+.oneinvoicepage table tbody h5 {
+  color: #777;
+  width: 100px;
+}
+.oneinvoicepage .totalsflex {
+  position: relative;
+  margin-top: 50px;
+}
+.oneinvoicepage .totalsflex h4 {
+  font-size: 16px;
+  color: var(--color);
+}
+.oneinvoicepage .totalsflex textarea {
+  margin-top: 20px;
+  border: none;
+  background: none;
+  resize: none;
+  font-family: inherit;
+  color: #777;
+  width: 350px;
+  height: 110px;
+}
+.oneinvoicepage .totalsflex textarea::placeholder {
+  color: #bbb;
+}
+.oneinvoicetotals {
+  position: relative;
+  width: 250px;
+}
+.oneinvoicetotals h5 {
+  color: #777;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.oneinvoicetotals hr {
+  height: 1px;
+  background: #e9e9e9;
+}
+.oneinvoicetotals h5 span {
+  font-weight: 500;
+  float: right;
+}
+.oneinvoicetotals .bigtotal {
+  font-size: 17px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  color: #444;
+}
+.oneinvoicetotals .bigtotal span {
+  font-weight: 600;
+}
+.oneinvoicepage button {
+  margin-right: 15px;
+}
+.oneinvoicepage button i {
+  left: 10px;
+}
+.oneinvactions {
+  display: block;
+}
+
+.addremindercont {
+  position: relative;
+  z-index: 990;
+  display: none;
+  text-align: center;
+} 
+.addremindercont > div {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+.addremindercont h2 {
+  font-size: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.addremindercont p {
+  margin-top: 20px;
+  width: 30%;
+  text-align: center;
+  color: #ccc;
+  font-weight: 500;
+  line-height: 1.8;
+}
+.addremindercont label {
+  margin-top: 80px;
+  width: 600px;
+}
+.addremindercont input {
+  width: 100%;
+  background: none;
+  border-bottom: 1px solid #eee;
+  border-radius: 0;
+  color: #fff;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+.addremindercont input::placeholder {
+  color: #777;
+}
+.addremindercont button {
+  position: absolute;
+  right: 10px;
+}
+.closeaddremcont {
+  color: #fff;
+  position: absolute;
+  bottom: 100px;
+  border: 1px solid #aaa;
+  padding: 8px 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.closeaddremcont:hover {
+  background: #fff;
+  color: #111;
+}
+.closeaddremcont i {
+  margin-right: 5px;
+}
+.reminderbox .boxoptions {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #eee;
+  transition: all 0.3s;
+}
+.reminderbox .boxoptions i {
+  color: #333;
+  font-size: 17px;
+  cursor: pointer;
+  padding: 3px;
+  transition: all 0.2s;
+}
+.reminderbox .boxoptions i:hover {
+  color: var(--color);
+}
+.addremindercont .reminderdateinp {
+  border: none;
+  background: #222;
+  padding: 13px;
+  top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.addremindercont .reminderdateinp:hover {
+  background: #333;
+} 
+
+.clientsrowgrid {
+  position: relative;
+  padding: 20px;
+}
+.clientsrowgrid .invtotalinfodiv {
+  width: 300px;
+}
+.clientsrowgrid .totalscouple {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.addinvoicecont .availclientsrow td {
+  font-size: 13px;
+  text-align: left;
+  padding: 13px 5px;
+  color: #555;
+}
+.addinvoicecont .availclientsrow td:last-child {
+  text-align: left;
+}
+.addinvoicecont .availclientsrow button {
+  padding: 5px 10px;
+  margin: 0;
+}
+.addinvoicecont .availclientsrow button i {
+  margin: 0;
+  padding: 0;
+  color: #ddd;
+}
+.addinvoicecont .availclientsrow button i:hover {
+  color: #ddd;
+}
+.addclienttable {
+  max-height: 400px;
+}
+.addclienttable tbody {
+  position: relative;
+  overflow-y: scroll;
+}
+.addclientnotescont textarea {
+  margin-top: 20px;
+  font-family: inherit;
+  border: none;
+  background: none;
+  min-width: 50%;
+  min-height: 100px;
+  color: #777;
+  resize: vertical;
+  padding: 10px;
+}
+.addclientnotescont textarea::placeholder {
+  color: #bbb;
+}
+
+.oneclientpage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.clientcardcont {
+  position: relative;
+  padding: 20px;
+  margin: 30px auto;
+}
+.innerclientcard {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 30px;
+}
+.innerclientcard::-webkit-scrollbar {
+  display: none;
+}
+.innerclientcard > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+.innerclientcard h6 {
+  font-size: 14px;
+  color: var(--txt);
+  font-weight: 500;
+  margin: 30px 0;
+  margin-bottom: 10px;
+}
+.innerclientcard h6 hr {
+  position: relative;
+  height: 2px;
+  background: var(--txt);
+  width: 55px;
+  margin: 0;
+  margin-left: 10px;
+  display: inline-block;
+  top: -3px;
+  opacity: 0.3;
+}
+.innerclientcard h5 {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+.innerclientcard p {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.innerclientcard p a {
+  color: #aaa;
+}
+.innerclientcard p a:hover {
+  text-decoration: underline;
+  color: #555;
+}
+.innerclientcard p span {
+  color: #777;
+}
+.clientleft {
+  grid-column: span 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.clientleft img {
+  width: 200px;
+  border-radius: 5px;
+}
+.clientleft textarea {
+  margin-top: 20px;
+  font-family: inherit;
+  border: none;
+  background: none;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100px;
+  color: #777;
+  resize: vertical;
+}
+.clientleft textarea::placeholder {
+  color: #bbb;
+}
+
+.clientright {
+  grid-column: span 2;
+}
+.clientright .titlesdiv h3 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 2px;
+}
+.clientright .titlesdiv h4 {
+  font-size: 15px;
+  color: var(--color);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.clientright .titlesdiv small {
+  color: #bbb;
+}
+.clientright .titlesdiv small i {
+  margin-right: 5px;
+}
+.clientright .ratingdiv big {
+  position: relative;
+  color: #777;
+  display: block;
+  margin-bottom: 40px;
+}
+.clientright .ratingdiv .starsdiv {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+  top: -1px;
+}
+.clientright .ratingdiv .starsdiv i {
+  cursor: pointer;
+  color: var(--color);
+}
+.clientactionable button {
+  margin-right: 20px;
+}
+.clientactionable small {
+  font-size: 13px;
+  top: 2px;
+  color: var(--color);
+  opacity: 0.5;
+}
+.clientactionable small i {
+  font-size: 18px;
+  top: 2px;
+  margin-right: 5px;
+}
+.clienttabscont {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.clienttabshead {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.clienttabshead small {
+  font-size: 14px;
+  color: #999;
+  margin-right: 30px;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+  padding-bottom: 15px;
+}
+.clienttabshead small:first-child {
+  color: var(--color);
+}
+.clienttabshead small:first-child hr {
+  background: var(--color);
+}
+.clienttabshead small:hover {
+  color: var(--color);
+}
+.clienttabshead small i {
+  margin-right: 5px;
+}
+.clienttabshead small hr {
+  position: absolute;
+  top: 26px;
+  height: 2px;
+  width: 80px;
+  background: var(--color);
+  opacity: 0;
+}
+.clienttabshead small:first-child hr {
+  opacity: 1;
+}
+.clienttabsbody {
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+} 
+.clienttabsbody::-webkit-scrollbar {
+  width: 6px;
+  opacity: 0.4;
+}
+[data-tab] {
+  display: none;
+}
+[data-tab]:first-child {
+  display: block;
+}
+.clienttabsbody p {
+  width: 300px;
+}
+.oneclientactions {
+  position: relative;
+  margin-top: 20px;
+  padding-bottom: 40px;
+}
+.oneclientactions h5 {
+  margin-bottom: 20px;
+} 
+
+.invaddclientcont {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.95);
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.invaddclient {
+  position: relative;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.invaddclient h3 {
+  font-size: 25px;
+  color: #777;
+  margin-bottom: 40px;
+}
+.invaddclient p {
+  color: #aaa;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
+}
+.invaddclient p button {
+  margin-top: 20px;
+}
+.invaddclientcont .fa-times {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  cursor: pointer;
+  padding: 5px;
+  color: #777;
+}
+.invaddclientcont .clientrow {
+  position: relative;
+  background: var(--red);
+  width: 830px;
+  height: 60px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+}
+.estaddclientcont .clientrow {
+  background: var(--yellow);
+}
+.clientrowcont {
+  position: relative;
+  height: 700px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.clientrowcont::-webkit-scrollbar {
+  display: none;
+}
+.invaddclientcont .clientrow h6 {
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+}
+.invaddclientcont .clientrow h6 i {
+  margin-right: 10px;
+}
+.invaddclientcont .clientrow h6:first-child {
+  text-transform: uppercase;
+}
+.invaddclientcont .clientrow button {
+  background: #fff;
+  color: var(--red);
+  padding: 5px 12px;
+}
+.estaddclientcont .clientrow button {
+  color: var(--yellow);
+}
+.invaddclientcont .clientrow button i {
+  margin: 0;
+}
+.invaddclientbtn {
+  padding: 5px 10px;
+}
+.eventinvhead {
+  padding: 10px 5px;
+  margin: 10px auto;
+  border-bottom: 1px solid #eee;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.eventinvhead small {
+  color: #333;
+  flex-basis: 100px;
+  flex-grow: 1;
+}
+.eventinvrow {
+  padding: 10px 5px;
+  border-radius: 5px;
+  margin: 10px auto;
+  background: var(--bg);
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.eventinvrow:nth-of-type(even) {
+  background: #d8e7f352;
+}
+.eventinvrow small {
+  color: #555;
+  flex-basis: 100px;
+  flex-grow: 1;
+}
+.eventinvrow small:nth-of-type(2), .eventinvrow small:nth-of-type(4) {
+  flex-grow: 2;
+}
+.eventinvhead small:nth-of-type(2), .eventinvhead small:nth-of-type(4) {
+  flex-grow: 2;
+}
+.eventinvhead small:last-child, .eventinvrow small:last-child {
+  flex-grow: 0;
+} 
+
+.appcontainer .MuiSlider-root {
+  color: var(--color); 
+}   
+.addinvoicecont label .MuiInputBase-input {
+  width: 45px;
+  font-size: 14px;
+  color: #555;
+  padding: 10px;
+  padding-right: 3px;
+  font-weight: 500;
+}
+.MuiInput-underline:before, .MuiInput-underline::after {
+  content: '';
+  display: none;
+}  
+
+.settingsgrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-gap: 20px;
+}
+.settingsgrid h6 {
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--txt);
+  font-weight: 500;
+}
+.settingsprofbox > a {
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  font-size: 13px;
+} 
+.settingsprofbox > a small {
+  color: var(--color);
+}
+.settingsprofbox > a:hover {
+  text-decoration: underline;
+} 
+.settingsprofbox .jobtitle {
+  font-size: 13px;
+  color: var(--txt);
+  text-align: center;
+  margin: auto;
+}
+.settingsprofbox {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 20px;
+}
+.settingsimgcont {
+  position: relative;
+  margin-top: 20px;
+}
+.settingsimgcont .uploadercont {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 100%;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.settingsimgcont .uploadercont:hover {
+  opacity: 0.9;
+}
+.settingsimgcont .uploadpic {
+  display: none; 
+  position: relative;
+} 
+.settingsimgcont i {
+  position: absolute;
+  top: 92px;
+  left: 95px;
+  padding: 8px;
+  border-radius: 100%;
+  background: var(--color);
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+.settingsprofbox > h6:first-child {
+  position: relative;
+  width: 100%;
+}
+.settingsprofbox h4 {
+  margin: auto;
+  color: #555;
+  margin-top: 20px;
+}
+.settingsprofbox h5 {
+  color: var(--txt);
+  font-size: 13px;
+  font-weight: 500;
+}
+.settingsprofbox hr {
+  height: 1px;
+  background: #f1f1f1;
+  width: 100%;
+  margin: 30px auto;
+}
+.profstats {
+  position: relative;
+  width: 100%;
+}
+.profstats h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.profstats h5 span {
+  color: #777;
+  font-size: 13px;
+}
+.infostats {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  height: 280px;
+}
+.infostats h5 {
+  color: var(--txt);
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.infostats h6 {
+  top: -10px;
+  margin-bottom: 10px;
+}
+.infostats span {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: block;
+}
+.infostats span a:hover {
+  color: var(--color);
+  text-decoration: underline;
+}
+.infostats small {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  font-size: 11px;
+  color: var(--color);
+  cursor: pointer; 
+  z-index: 10;
+}
+.infostats small:hover {
+  text-decoration: underline;
+}
+.settingsprofbox div p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+} 
+.settingsprofbox .supportdiv {
+  text-align: center;
+}
+.settingspage .tabheaders {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid #b2bbca20;
+  border-radius: 5px;
+  padding: 10px;
+}
+.settingspage .tabheaders h5 {
+  margin-right: 40px;
+  padding: 10px 0;
+  color: var(--txt);
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 5px;
+  user-select: none;
+}
+.settingspage .tabheaders h5:hover {
+  color: var(--color);
+}
+.settingspage .tabheaders h5:hover hr {
+  opacity: 1;
+}
+.settingspage .tabheaders h5 hr {
+  position: absolute;
+  top: 41px;
+  height: 2px;
+  width: 100%;
+  background: var(--color);
+  opacity: 0; 
+  transition: all 0.2s;
+}
+.settingspage .tabheaders .activesetlink h5 {
+  color: var(--color);
+}
+.settingspage .tabheaders .activesetlink hr {
+  opacity: 1;
+} 
+.settingspage label h6 {
+  text-transform: capitalize;
+}
+.settingspage input {
+  border-color: #b2bbca20;
+}
+.settingspage input::placeholder {
+  color: #ddd;
+  font-weight: 500;
+}
+.settingspage .tabcontent {
+  padding: 10px;
+}
+.settingspage h5.settingstitle {
+  color: #777;
+  grid-column: 1 / -1;
+  margin: 20px 0;
+  font-size: 15px;
+} 
+.settingspage h5.settingstitle small {
+  display: block;
+  color: #ccc;
+  font-weight: 500;
+  margin-top: 5px;
+} 
+.settingspage h5.settingstitle i {
+  margin-right: 10px;
+}
+.settingspage .tabcontent button {
+  width: 100px;
+  margin-top: 20px;
+  grid-column: 1 / -1;
+}  
+
+.settingsaccount, .settingsgeneral, .settingsinvoices {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px 40px; 
+}
+.settingsgeneral, .settingsinvoices {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+} 
+
+/* iOS Style Button */
+.form-switch{display:inline-block;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.form-switch i{position:relative;display:inline-block;margin-right:.5rem;width:46px;height:26px;background-color:#e6e6e6;border-radius:23px;vertical-align:text-bottom;transition:all .3s linear}
+.form-switch i::before{content:"";position:absolute;left:0;width:42px;height:22px;background-color:#fff;border-radius:11px;transform:translate3d(2px,2px,0) scale3d(1,1,1);transition:all .25s linear}
+.form-switch i::after{content:"";position:absolute;left:0;width:22px;height:22px;background-color:#fff;border-radius:11px;box-shadow:0 2px 2px rgba(0,0,0,.24);transform:translate3d(2px,2px,0);transition:all .2s ease-in-out}
+.form-switch:active i::after{width:28px;transform:translate3d(2px,2px,0)}
+.form-switch:active input:checked+i::after{transform:translate3d(16px,2px,0)}
+.form-switch input{display:none}
+.form-switch input:checked+i{background:var(--color)}
+.form-switch input:checked+i::before{transform:translate3d(18px,2px,0) scale3d(0,0,0)}
+.form-switch input:checked+i::after{transform:translate3d(22px,2px,0)} 
+
+.switchdiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #b2bbca20;
+  padding: 10px;
+  border-radius: 5px; 
+}
+.switchdiv h6 { 
+  font-size: 14px;
+  color: #777;
+  text-transform: capitalize;
+}
+.settingspage .PrivateValueLabel-label-5 {
+  font-size: 10.5px;
+}
+.altsetcont {
+  position: relative;
+  padding: 10px;
+  border: 2px solid #b2bbca20;
+  border-radius: 5px;
+}
+.altsetcont small {
+  display: block;
+  margin-top: 10px;
+}
+select.altsetcont {
+  padding: 15px 10px;
+  width: 100%;
+}
+.noborder {
+  border: none;
+  padding: 0;
+}
+.altsetcont small {
+  position: relative;
+  top: -10px;
+  left: 0;
+  color: #aaa;
+  font-size: 12px;
+}
+.settingspage .MuiInputBase-input {
+  font-size: 15px;
+} 
+.settingspage .btngroup button {
+  margin-right: 20px;
+}
+.infonav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -15px;
+} 
+.infonav i {
+  font-style: normal;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: var(--color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 7px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.infonav i:hover, .infonav .activeinfonav {
+  background: var(--color);
+  color: #fff;
+}
+
+.settingssupport p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.settingssupport p a {
+  color: var(--color);
+}
+.settingssupport p a:hover {
+  text-decoration: underline;
+}
+
+
+/*Styles for responsive homepage */
+.mobapp {
+  grid-template-columns: 60px auto 40px;
+}
+.mobapp nav .fa-stream {
+  left:-18px;
+  transform:rotate(90deg);
+}
+.mobapp .sidebar h3 span { 
+  display: none;
+}
+.mobapp .sidebar h3 div {
+  margin: 20px auto 0 5px;
+}
+.mobapp .sidemenu h6 span {
+  display: none;
+}
+.mobapp .sidemenu h6 i {
+  margin: 0;
+  font-size: 17px;
+}
+.mobapp .sidebar button {
+  padding: 10px 13px;
+}
+.mobapp .sidebar button span {
+  display: none;
+}
+.mobapp .sidebar button i {
+  margin: 0;
+}
+.mobapp .quicktools {
+  width: 10px;
+  height: 200px;
+  left: -13px;
+  display: grid;
+  border: none;
+  background: none;
+  z-index: 200;
+} 
+.mobapp .toolsslide {
+  position: absolute;
+  z-index: 100;
+}
+.mobapp nav {
+  overflow: visible;
+}
+.mobapp nav .react-datepicker {
+  right: 150px;
+}
+.mobapp nav .mainclock {
+  position: relative;
+  right: 180px;
+  background: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.mainclock input {
+  font-size: 20px;
+  color: #777;
+}
+
+
+/*Dark mode styles */
+.darkapp, .darkapp .updateitem, .darkapp .eventinvrow, .darkapp .trashpage {
+  background: #0b1217ee;
+}
+.darkapp .editslidercont, .darkapp .invaddclientcont, .darkapp .supportcont {
+  background: #0b1217f3;
+} 
+.darkapp .sidebar, .darkapp nav {
+  background: #0b1217;
+}
+.darkapp .dashbox, .darkapp .oneinvoicepage table tbody tr:nth-child(even), .darkapp .templateitemrow td, .darkapp .templateitemrow td input  {
+  background: #0b121794;
+}
+.darkapp .templateitemrow td input {
+  color: #aaa;
+}
+.darkapp .flexrowcont, .darkapp .pageheaders input, .darkapp .homepage .invoicestablecont .flexrowcont, 
+.darkapp .invtotalcont .totalsdiv, .darkapp .editslidercont input  {
+  background: #0b121794;
+  border-color: #444;
+}
+.darkapp .editslidercont input, .darkapp .editslidercont h6 {
+  color: #aaa;
+}
+.darkapp .flexrowinfo, .darkapp .invtotalinfodiv, .darkapp .quicktools {
+  border-color: #444;
+} 
+.darkapp select, .darkapp .oneinvoicepage .oneinvflex .invoicepiccont > div {
+  background: #0b121794; 
+  color: #aaa;
+}
+.darkapp .reminderbox, .darkapp .progtube, .darkapp .quicktools {
+  background: #142029;
+}
+.darkapp .footerinfo small span, .darkapp .pageheaders h2, .darkapp .altsetcont input {
+  color: #eee;
+} 
+.darkapp .settingsprofbox hr {
+  background: #444;
+}
+.darkapp .supportcont input, .darkapp .supportcont textarea {
+  background: #142029; 
+}
+.darkapp input::placeholder, .darkapp .dashbox > small a, .darkapp .prognumbers {
+  color: #555;
+} 
+
+.supportcont {
+  position: fixed;
+  top: -550px;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background: #fff;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+  padding: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+.supportcont h3 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 50px;
+}
+.supportcont form {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  flex-direction: column;
+  grid-gap: 20px;
+}
+.supportcont form input {
+  background: #f5f5f5;
+  padding: 15px 10px;
+  width: 100%;
+}
+.supportcont form label {
+  position: relative;
+  width: 100%;
+}
+.supportcont form label h6 {
+  color: var(--txt);
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.supportcont form textarea {
+  min-height: 120px;
+  max-height: 180px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 5px;
+  padding: 10px;
+  resize: vertical;
+  width: 100%;
+}
+.supportcont form textarea::placeholder {
+  color: #ddd;
+}
+.supportcont button {
+  width: 100px;
+  margin-top: 20px;
+}
+.supportcont .fa-times {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #555;
+  font-size: 30px;
+  cursor: pointer;
+  
+}
+
+.quicktools {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px 20px;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+}
+.quicktools i {
+  color: #aaa;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.quicktools i:hover {
+  color: var(--color);
+}
+.toolsslide {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  padding: 20px 10px;
+  background: #fff;
+  border-radius: 10px 10px 0 0;
+  z-index: 200;
+  box-shadow: 0px -7px 18px -16px rgba(0,0,0,0.47);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.toolsslide input {
+  background: none;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #555;
+}
+
+.calculatorcont {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 990;
+  background: rgba(255,255,255,0.95);
+  justify-content: center;
+  align-items: center; 
+  display: none;
+  text-align: center;
+}
+.calculator {
+  position: relative;
+  top: -80px;
+  width: 500px;
+  height: 550px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  transform: scale(0.9);
+}
+.calculator iframe {
+  position: relative;
+  width: 600px;
+  height: 700px;
+  object-fit: cover;
+  border: none;
+  background: none;
+}
+.calculatorcont button {
+  position: absolute;
+  bottom: 50px;
+}
+
+.loginpage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+}
+.logincont {
+  position: relative;
+  width: 550px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(104, 43, 255,0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(104, 43, 255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 10px;
+  padding: 50px 30px;
+}
+.mainlogicon {
+  font-size: 25px;
+  color: var(--color);
+}
+.logincont h3 {
+  color: #555;
+  font-size: 24px;
+}
+.logincont form label {
+  position: relative;
+  margin: 8px auto;
+}
+.logincont form label input {
+  width: 300px;
+} 
+.logincont form {
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.logincont button {
+  width: 300px;
+  margin-top: 10px;
+}
+.logincont a {
+  color: var(--color);
+}
+.logincont a:hover {
+  text-decoration: underline;
+}
+.logincont small {
+  margin-top: 20px;
+}
+
+.profdropdown {
+  position: absolute;
+  right: 0;
+  width: 200px;
+  border-radius: 5px;
+  background: var(--bg);
+  z-index: 900;
+  overflow: hidden;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+  display: none;
+  opacity: 0;
+  top: 20px;
+}
+.proficoncont:hover .profdropdown {
+  animation: dropdown 0.3s linear;
+  display: block;
+  opacity: 1;
+  top: 32px;
+} 
+@keyframes dropdown {
+  0% {opacity: 0;top:20px;display: block}
+  50%{opacity: 0;top:20px;display: block}
+  90%{opacity: 1;top:32px;display: block}
+}
+.profdropdown h6 {
+  padding: 12px 15px;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.profdropdown h6:hover {
+  background: #eee;
+}
+.profdropdown h6 i {
+  color: #777;
+  margin-right: 8px;
+}
+.settingspage .tabcontent  .trashbtn {
+  width: 120px;
+  margin: 0;
+}
+
+.trashpage {
+  position: fixed;
+  bottom: -65%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 0px -7px 23px -14px rgba(0,0,0,0.48);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  grid-gap: 30px;
+  transition: all 0.3s;
+}
+.trashcont {
+  position: relative;
+  height: 90%;
+  min-width: 750px;
+  overflow-y: scroll;
+}
+.trashcont::-webkit-scrollbar {
+  display: none;
+}
+.trashpage h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #555;
+}
+.trashhead {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 0 30px;
+  border: 2px solid #b2bbca20;
+  border-radius: 5px;
+  padding: 10px;
+}
+.trashhead a {
+  color: var(--txt);
+  font-size: 14px;
+}
+.trashpage .trashactivelink {
+  color: var(--color)
+}
+.trashpage .closetrash {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 30px;
+  color: #999;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.trashpage .closetrash:hover {
+  color: #333;
+}
+.trashpage .trashcontent {
+  margin-top: 20px;
+}
+.trashpage .trashitem {
+  position: relative;
+  width: 100%;
+  font-size: 15px;
+  color: #555;
+  padding: 10px;
+  background: #d8e7f352;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.trashpage .trashitem button {
+  padding: 5px 10px;
+  width: auto;
+  font-size: 12px;
+  margin: 0;
+  margin-right: 10px;
+}
+.trashpage .trashitem i {
+  color: #777;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.trashpage .trashitem i:hover {
+  color: var(--color);
+}
+
+.oneinvtablerowitem input {
+  background: none;
+  cursor: text;
+  font-weight: 600;
+  font-size: 14px;
+  color: #777;
+}
+
+.flexrowcont .hearticon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--blue);
+  font-size: 13px;
+}
+.taxinputdiv {
+  position: relative;
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1400px) {
+  .addinvoicecont {
+    width: 100%;
+  }
+  .innerclientcard {
+    display: block;
+  }
+} 
+@media (max-width:1200px) {
+  .dashbox:not(.dashsmall) {
+    grid-column: span 4;
+  }
+}
+@media (max-width: 1000px) {
+  .appcontainer {
+    grid-template-columns: 60px auto 40px;
+  }
+  .appcontainer nav .fa-stream {
+    left:-18px;
+    transform:rotate(180deg);
+  }
+  .appcontainer .sidebar h3 span {
+    display: none;
+  }
+  .appcontainer .sidebar h3 div {
+    margin: 20px auto 0 5px;
+  }
+  .appcontainer .sidemenu h6 span {
+    display: none;
+  }
+  .appcontainer .sidemenu h6 i {
+    margin: 0;
+    font-size: 17px;
+  }
+  .appcontainer .sidebar button {
+    padding: 10px 13px;
+  }
+  .appcontainer .sidebar button span {
+    display: none;
+  }
+  .appcontainer .sidebar button i {
+    margin: 0;
+  }
+}
+
+/*Min Width */
+@media (min-width: 1850px) {
+  .invtotalcont .totalsdiv {
+    position: fixed;
+    top: 120px;
+    right: 350px;
+    z-index: 100;
+  }
+}
+
+
+
+
+
+
